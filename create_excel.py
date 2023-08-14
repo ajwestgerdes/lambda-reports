@@ -1,14 +1,6 @@
 import pandas
 
-grouped_data = {}
-
-# df1 = pd.DataFrame([['a', 'b'], ['c', 'd']],
-#                    index=['row 1', 'row 2'],
-#                    columns=['col 1', 'col 2'])
-# df1.to_excel("output.xlsx")  
-
-def create_excel(data):
-    print(data)
+def create_excel(data, file_name):
     df = pandas.DataFrame({
         "Function Name": data['function_name'],
         "Last Invocation (days)": data['last_invocation'],
@@ -17,4 +9,4 @@ def create_excel(data):
         "Runtime": data['runtime'],
         "Description": data['description']
     })
-    df.to_excel('test.xlsx', sheet_name='Lambda Report', index=False)
+    df.to_excel(file_name, sheet_name='Lambda Report', index=False)
